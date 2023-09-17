@@ -1,0 +1,32 @@
+.cocktails{
+    padding: 10px;
+}
+
+.cocktails__list{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    grid-row: auto;
+
+    list-style: none;
+}
+
+@media (max-width:768px){
+    .cocktails__list{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+
+@media (max-width:426px){
+    .cocktails__list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width:320px){
+    .cocktails__list{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
