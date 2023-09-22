@@ -1,9 +1,5 @@
 .container{
-  width: 1092px;
+  max-width: 1092px;
   padding: 30px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 60px);
-  justify-content: space-between;
 }

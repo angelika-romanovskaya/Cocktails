@@ -31,7 +31,7 @@ function Header({search, filter}) {
   return (
     <div className = 'header'>
         <div className='burger' onClick={(event) => burgerFun(event)}><BiMenuAltLeft/></div>
-        <ul className = {stateBurger ? 'header__nav' : 'header__nav hidden'}>
+        <ul className = {stateBurger ? 'header__nav hidden' : 'header__nav'}>
             <li className = 'header__item'>
                 <NavLink className = {splitLocation[1] === '' ? 'header__link selected' : 'header__link'}  to = '/'>Home</NavLink>
             </li>
