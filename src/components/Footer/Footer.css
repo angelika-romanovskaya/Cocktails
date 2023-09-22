@@ -1,0 +1,33 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding: 10px;
+    border-top: 1px black solid;
+}
+
+.footer__nav{
+    list-style: none;
+    display: flex;
+    justify-content:center;
+    gap:15px;
+    font-size: 14px;
+}
+
+.footer__link{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+}
+
+
+.selected{
+    font-weight: bold;
+}
+
+.footer__messangers{
+    color: black;
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+}

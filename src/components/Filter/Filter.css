@@ -1,0 +1,16 @@
+.filter{
+    
+    padding: 20px;
+    background-color: rgb(144, 105, 103);
+}
+
+.filter__wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.block{
+    display: block;
+}

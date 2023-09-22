@@ -1,0 +1,35 @@
+.plus{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.plus__paragraph{
+    max-width: 65%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    font-size: 24px;
+}
+
+.plus__img{
+    float: right;
+    width: 50%;
+    margin-left: 20px;
+}
+
+@counter-style circled-alpha {
+    system: fixed;
+    symbols: 🍸 🔍 🎨;
+    suffix: " ";
+  }
+
+.plus__list{
+    list-style-position: inside;
+    list-style: circled-alpha;
+    text-align: justify;
+}
+
+.plus__item{
+    font-size: 16px;
+    margin-bottom: 10px;
+}

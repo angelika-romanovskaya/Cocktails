@@ -1,0 +1,56 @@
+
+.wrap{
+    display: flex;
+    gap:100px;
+    justify-content: center;
+}
+
+.wrap__item:first-child{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: fit-content;
+}
+
+.cocktail__name{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 34px;
+}
+
+.cocktail__img{
+  width: 350px;
+}
+
+.wrap__item:last-child{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+}
+
+.ingredients__title{
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.ingredients__list{
+    list-style: square inside;
+    font-size: 20px;
+}
+
+.ingredients__name{
+    font-weight: bold;
+}
+
+.ingredients__measure{
+    text-transform: capitalize;
+}                
+
+@media (max-width:768px){
+    .wrap{
+        flex-direction: column;
+        gap:30px;
+        align-items: center;
+    }
+}
