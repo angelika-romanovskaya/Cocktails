@@ -23,6 +23,9 @@ function Footer() {
             <li className = 'footer__item'>
                 <NavLink className = {splitLocation[1] === 'non-alcoholic' ? 'footer__link selected' : 'footer__link'}  to = '/non-alcoholic'>NON Alcoholic</NavLink>
             </li>
+            <li className = 'header__item'>
+                <NavLink className = {splitLocation[1] === 'optional-alcohol' ? 'footer__link selected' : 'footer__link'}  to = '/optional-alcohol'>Optional Alcohol</NavLink>
+            </li>
         </ul>
         <ul className='footer__messangers'>
             <a className='footer__link' href="https://t.me/angelika_ro"><BsTelegram className='footer__social'/></a>

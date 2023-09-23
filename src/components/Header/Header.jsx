@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { BsSearch} from 'react-icons/bs';
 import { LuFilter} from 'react-icons/lu';
@@ -6,32 +6,61 @@ import { BiMenuAltLeft} from 'react-icons/bi';
 import './Header.css'
 import Filter from '../Filter/Filter';
 function Header({search, filter}) {
-    const [stateSearch, setStateSearch]= useState(false);
-    const [stateFilter, setStateFilter]= useState(false);
+    const [stateSearch, setStateSearch]= useState('/search');
+    const [stateFilter, setStateFilter]= useState('/filter');
     const [stateBurger, setStateBurger]= useState(false);
+    const [classN, setClassN] = useState('header__nav');
+    const [size, setSize] = useState(window.innerWidth)
     const location = useLocation();
     const { pathname } = location;
     const splitLocation = pathname.split("/");
     
-    function addClass(event){
-        setStateFilter(stateFilter => !stateFilter);
-        setStateSearch(stateSearch => !stateSearch);
+    function addClassSearch(event){
+        if(splitLocation[1] === 'search') setStateSearch('/')
+        else setStateSearch('/search')
     }
 
-    function addClassFilter(event){
-        setStateFilter(stateFilter => !stateFilter);
-        setStateSearch(stateSearch => !stateSearch);
+    useEffect(() =>{
+        addClassSearch();
+      }, [location]);
+
+      function addClassFilter(event){
+        if(splitLocation[1] === 'filter') setStateFilter('/')
+        else setStateFilter('/filter')
     }
+
+    useEffect(() =>{
+        addClassFilter();
+      }, [location]);
 
     function burgerFun(event){
         setStateBurger(!stateBurger);
+        setClassName();
     }
 
+    useEffect(() => {
+        const resize = () => {
+            setSize(window.innerWidth,)
+            setClassName();
+            console.log(size);
+        }
+
+        window.addEventListener('resize', resize)
+    }, [size])
+
+    function setClassName(){
+        console.log(size);
+        console.log(size < 768);
+        console.log(stateBurger);
+        size < 768 ?
+            (stateBurger ? setClassN('header__nav') : setClassN('hidden')) : 
+            setClassN('header__nav');
+    }
 
   return (
     <div className = 'header'>
         <div className='burger' onClick={(event) => burgerFun(event)}><BiMenuAltLeft/></div>
-        <ul className = {stateBurger ? 'header__nav hidden' : 'header__nav'}>
+        <ul onClick={(event) => burgerFun(event)}  className = {classN}>
             <li className = 'header__item'>
                 <NavLink className = {splitLocation[1] === '' ? 'header__link selected' : 'header__link'}  to = '/'>Home</NavLink>
             </li>
@@ -50,8 +79,8 @@ function Header({search, filter}) {
         </ul>
         <div className='header__function'>
             <input onKeyUp={(event) => search(event)} className={splitLocation[1] === 'search' ? 'header__input block' : 'header__input'} type="search" />
-            <NavLink to={stateSearch === true ? '/search' : '/'} onClick={(event)=>addClass(event)} className='header__link'><BsSearch className='header__func' title='search'/></NavLink>
-            <NavLink onClick={(event)=>addClassFilter(event)} to={stateFilter === true ? '/filter' : '/'} className='header__link'><LuFilter className='header__func' title='filter'/></NavLink>
+            <NavLink to={stateSearch} onClick={(event)=>addClassSearch(event)} className='header__link'><BsSearch className='header__func' title='search'/></NavLink>
+            <NavLink onClick={(event)=>addClassFilter(event)} to={stateFilter} className='header__link'><LuFilter className='header__func' title='filter'/></NavLink>
             <div className={splitLocation[1] === 'filter' ? 'header__filter block' : 'header__filter'}>
                 <Filter filter={filter}/>
             </div>

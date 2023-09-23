@@ -115,6 +115,15 @@ function App() {
               let d = ar.filter(a=>arr.includes(a));
               arr = d;
             }
+            if(choiceAlcoholic.length !== 0){
+              for(let i = 0; i<choiceAlcoholic.length; i++){
+                let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
+                if(arr.length !== 0){
+                  let d = s.filter(a=>arr.includes(a));
+                  arr = d;
+                }
+              }
+            }
         }
         else{
           if(choiceAlcoholic.length !== 0){
@@ -132,10 +141,7 @@ function App() {
       if(choiceGlass.length !== 0){
         for(let i = 0; i<choiceGlass.length; i++){
           let s = allCocktails.filter((item)=> item.strGlass === choiceGlass[i]);
-          if(arr.length !== 0){
-            let d = s.filter(a=>arr.includes(a));
-            arr = d;
-          }
+          arr = s;
         }
         if(choiceIngredient.length !== 0){
           let ar = [];
@@ -178,10 +184,9 @@ function App() {
                   ar.push(...s);
               }
             }
-            if(arr.length !== 0){
-              let d = ar.filter(a=>arr.includes(a));
-              arr = d;
-            } 
+            
+              arr = ar;
+            
             if(choiceAlcoholic.length !== 0){
               for(let i = 0; i<choiceAlcoholic.length; i++){
                 let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
@@ -198,6 +203,8 @@ function App() {
               if(arr.length !== 0){
                 let d = s.filter(a=>arr.includes(a));
                 arr = d;
+              } else{
+                arr = s;
               }
             }
           }
