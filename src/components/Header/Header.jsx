@@ -35,26 +35,25 @@ function Header({search, filter}) {
 
     function burgerFun(event){
         setStateBurger(!stateBurger);
-        setClassName();
+        stateBurger ? setClassN('header__nav') : setClassN('hidden');
     }
 
     useEffect(() => {
         const resize = () => {
-            setSize(window.innerWidth,)
+            setSize(window.innerWidth)
             setClassName();
-            console.log(size);
         }
 
         window.addEventListener('resize', resize)
     }, [size])
 
     function setClassName(){
-        console.log(size);
-        console.log(size < 768);
-        console.log(stateBurger);
-        size < 768 ?
-            (stateBurger ? setClassN('header__nav') : setClassN('hidden')) : 
-            setClassN('header__nav');
+       if(size<768){
+        setStateBurger(false);
+        stateBurger ? setClassN('header__nav') : setClassN('hidden');
+       } else{
+        setClassN('header__nav');
+       }
     }
 
   return (
