@@ -33,3 +33,27 @@
     font-size: 16px;
     margin-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+    .plus__paragraph{
+        max-width: 90%;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .plus__img{
+        display: block;
+        float: none;
+        width: 70%;
+        margin: 0 auto;
+        margin-bottom: 20px;
+    }
+
+    .plus__list{
+        clear: both;
+    }
+
+    .plus__item{
+        font-size: 14px;
+    }
+}
