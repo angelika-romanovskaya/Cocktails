@@ -55,163 +55,90 @@ function App() {
       setCocktails(allCocktails.filter((item)=>(item.strDrink.includes(event.target.value))));
   }
 
-  const filter = function(event, choiseCategory, choiceGlass, choiceIngredient, choiceAlcoholic){
-    event.preventDefault();
-    let arr = [];
+  function filterCategory(choiseCategory){
+    let arrCategory = [];
     if(choiseCategory.length !== 0){
       for(let i = 0; i<choiseCategory.length; i++){
-        arr.push(...(allCocktails.filter((item)=> item.strCategory === choiseCategory[i])))
+        arrCategory.push(...(allCocktails.filter((item)=> item.strCategory === choiseCategory[i])))
+        console.log(arrCategory);
       }
-      if(choiceGlass.length !== 0){
-        for(let i = 0; i<choiceGlass.length; i++){
-          let s = allCocktails.filter((item)=> item.strGlass === choiceGlass[i]);
-          if(arr.length !== 0){
-            let d = s.filter(a=>arr.includes(a));
-            arr = d;
-          }
-        }
-        if(choiceIngredient.length !== 0){
-          let ar = [];
-          for(let i = 0; i<choiceIngredient.length; i++){
-            for(let j =1; j<=15; j++){
-                  let s = allCocktails.filter((item)=> item["strIngredient" + j] === choiceIngredient[i]);
-                  ar.push(...s);
-              }
-            }
-            if(arr.length !== 0){
-              let d = ar.filter(a=>arr.includes(a));
-              arr = d;
-            }
-            if(choiceAlcoholic.length !== 0){
-              for(let i = 0; i<choiceAlcoholic.length; i++){
-                let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-                if(arr.length !== 0){
-                  let d = s.filter(a=>arr.includes(a));
-                  arr = d;
-                }
-              }
-            }
-        } else{
-          if(choiceAlcoholic.length !== 0){
-            for(let i = 0; i<choiceAlcoholic.length; i++){
-              let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-              if(arr.length !== 0){
-                let d = s.filter(a=>arr.includes(a));
-                arr = d;
-              }
-            }
-          }
-        }
-      } else{
-        if(choiceIngredient.length !== 0){
-          let ar = [];
-          for(let i = 0; i<choiceIngredient.length; i++){
-            for(let j =1; j<=15; j++){
-                  let s = allCocktails.filter((item)=> item["strIngredient" + j] === choiceIngredient[i]);
-                  ar.push(...s);
-              }
-            }
-            if(arr.length !== 0){
-              let d = ar.filter(a=>arr.includes(a));
-              arr = d;
-            }
-            if(choiceAlcoholic.length !== 0){
-              for(let i = 0; i<choiceAlcoholic.length; i++){
-                let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-                if(arr.length !== 0){
-                  let d = s.filter(a=>arr.includes(a));
-                  arr = d;
-                }
-              }
-            }
-        }
-        else{
-          if(choiceAlcoholic.length !== 0){
-            for(let i = 0; i<choiceAlcoholic.length; i++){
-              let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-              if(arr.length !== 0){
-                let d = s.filter(a=>arr.includes(a));
-                arr = d;
-              }
-            }
-          }
-        }
-      }
+      return arrCategory;
     } else{
-      if(choiceGlass.length !== 0){
-        for(let i = 0; i<choiceGlass.length; i++){
-          let s = allCocktails.filter((item)=> item.strGlass === choiceGlass[i]);
-          arr = s;
-        }
-        if(choiceIngredient.length !== 0){
-          let ar = [];
-          for(let i = 0; i<choiceIngredient.length; i++){
-            for(let j =1; j<=15; j++){
-                  let s = allCocktails.filter((item)=> item["strIngredient" + j] === choiceIngredient[i]);
-                  ar.push(...s);
-              }
-            }
-            if(arr.length !== 0){
-              let d = ar.filter(a=>arr.includes(a));
-              arr = d;
-            }
-            if(choiceAlcoholic.length !== 0){
-              for(let i = 0; i<choiceAlcoholic.length; i++){
-                let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-                if(arr.length !== 0){
-                  let d = s.filter(a=>arr.includes(a));
-                  arr = d;
-                }
-              }
-            }
-        } else{
-          if(choiceAlcoholic.length !== 0){
-            for(let i = 0; i<choiceAlcoholic.length; i++){
-              let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-              if(arr.length !== 0){
-                let d = s.filter(a=>arr.includes(a));
-                arr = d;
-              }
-            }
-          }
-        }
+      return arrCategory;
+    }
+  }
+
+  function filterGlass(choiceGlass, arrCategory){
+    let arrGlass = [];
+    let arr = [];
+    let glass = [];
+    if(choiceGlass.length !== 0){
+      for(let i = 0; i<choiceGlass.length; i++){
+        arr.push(...(allCocktails.filter((item)=> item.strGlass === choiceGlass[i])));
+      }
+      if(arrCategory.length !== 0){
+        glass.push(...(arrCategory.filter(a=>arr.includes(a))));
+        console.log(glass);
+        arrGlass.push(...glass);
       } else{
-        if(choiceIngredient.length !== 0){
-          let ar = [];
-          for(let i = 0; i<choiceIngredient.length; i++){
-            for(let j =1; j<=15; j++){
-                  let s = allCocktails.filter((item)=> item["strIngredient" + j] === choiceIngredient[i]);
-                  ar.push(...s);
-              }
-            }
-            
-              arr = ar;
-            
-            if(choiceAlcoholic.length !== 0){
-              for(let i = 0; i<choiceAlcoholic.length; i++){
-                let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-                if(arr.length !== 0){
-                  let d = s.filter(a=>arr.includes(a));
-                  arr = d;
-                }
-              }
-            }
-        } else{
-          if(choiceAlcoholic.length !== 0){
-            for(let i = 0; i<choiceAlcoholic.length; i++){
-              let s = allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i]);
-              if(arr.length !== 0){
-                let d = s.filter(a=>arr.includes(a));
-                arr = d;
-              } else{
-                arr = s;
-              }
-            }
-          }
+        arrGlass.push(...arrCategory);
+      }
+      return arrGlass;
+    } else{
+      return arrCategory;
+    }
+  }
+
+  function filterIngredient(choiceIngredient, arrGlass){
+    let arrIngredient = [];
+    let arr = [];
+    let ingredient = [];
+    if(choiceIngredient.length !== 0){
+      for(let i = 0; i<choiceIngredient.length; i++){
+        for(let j =1; j<=15; j++){
+          arr.push(...(allCocktails.filter((item)=> item["strIngredient" + j] === choiceIngredient[i])));
         }
       }
+      if(arrGlass.length !== 0){
+        ingredient.push(...(arrGlass.filter(a=>arr.includes(a))));
+        arrIngredient.push(...ingredient);
+        console.log(ingredient);
+      } else{
+        arrIngredient.push(...arrGlass);
+      }
+      return arrIngredient;
+    } else{
+      return arrGlass;
     }
-    setCocktails(arr);
+  }
+
+  function filterAlcoholic(choiceAlcoholic, arrIngredient){
+    let arrAlcoholic = [];
+    let arr = [];
+    let alcoholic = [];
+    if(choiceAlcoholic.length !== 0){
+      for(let i = 0; i<choiceAlcoholic.length; i++){
+        arr.push(...(allCocktails.filter((item)=> item.strAlcoholic === choiceAlcoholic[i])));
+      }
+      if(arrIngredient.length !== 0){
+        alcoholic.push(...(arrIngredient.filter(a=>arr.includes(a))));
+        arrAlcoholic.push(...alcoholic);
+        console.log(alcoholic);
+      } else{
+        arrAlcoholic.push(...arrIngredient);
+      }
+      return arrAlcoholic;
+    } else{
+      return arrIngredient;
+    }
+  }
+
+
+  const filter = function(event,choiseCategory, choiceGlass, choiceIngredient, choiceAlcoholic){
+    event.preventDefault();
+    let arrResult = [];
+    arrResult = filterAlcoholic(choiceAlcoholic,filterIngredient(choiceIngredient,filterGlass(choiceGlass,filterCategory(choiseCategory))));
+    setCocktails(arrResult);
 }
 
 
