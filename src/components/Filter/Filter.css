@@ -1,16 +1,76 @@
 .filter{
-    width: fit-content;
-    padding: 20px;
+    max-width: 300px;
+    padding: 10px;
     background-color: rgb(144, 105, 103);
 }
 
 .filter__wrap{
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.filter__select{
+    height: fit-content;
+    width: 145px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.filter__option{
+    padding: 5px;
+    border-bottom: 1px black solid;
+    overflow: auto;
+}
+
+.filter__option:checked{
+    background-color: rgba(131, 88, 86, 0.54);
+}
+
+.filter__btn{
+    font-size: 24px;
+    width: 50%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.258);
+    border: none;
+    border-radius: 15px;
+    margin: 10px 25% 0;
+    padding: 10px;
 }
 
 .block{
     display: block;
+}
+
+::-webkit-scrollbar {
+    height: 10px; 
+    width: 10px;              /* width of the entire scrollbar */
+  }
+::-webkit-scrollbar-track {
+    background: rgba(131, 88, 86, 0.54);        /* color of the tracking area */
+  }
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.258);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+    border: 3px solid rgba(131, 88, 86, 0.54);  /* creates padding around scroll thumb */
+  }
+
+@media (max-width:426px) {
+    .filter{
+        max-width: 200px;
+        max-height: 50vh;
+        overflow: auto;
+    }
+    
+    .filter__select{
+        width: 180px;
+        font-size: 14px;
+    }
+    
+    .filter__btn{
+        font-size: 18px;
+        padding: 5px;
+    }
+    
 }

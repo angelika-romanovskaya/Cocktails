@@ -24,7 +24,7 @@ function Header({search, filter}) {
         addClassSearch();
       }, [location]);
 
-      function addClassFilter(event){
+    function addClassFilter(event){
         if(splitLocation[1] === 'filter') setStateFilter('/')
         else setStateFilter('/filter')
     }
@@ -33,9 +33,11 @@ function Header({search, filter}) {
         addClassFilter();
       }, [location]);
 
-    function burgerFun(event){
-        setStateBurger(!stateBurger);
-        stateBurger ? setClassN('header__nav') : setClassN('hidden');
+    function burgerFun(){
+        if(size<768){
+            setStateBurger(!stateBurger);
+            stateBurger ? setClassN('header__nav') : setClassN('hidden');
+        }
     }
 
     useEffect(() => {
@@ -58,8 +60,8 @@ function Header({search, filter}) {
 
   return (
     <div className = 'header'>
-        <div className='burger' onClick={(event) => burgerFun(event)}><BiMenuAltLeft/></div>
-        <ul onClick={(event) => burgerFun(event)}  className = {classN}>
+        <div className='burger' onClick={() => burgerFun()}><BiMenuAltLeft/></div>
+        <ul onClick={() => burgerFun()}  className = {classN}>
             <li className = 'header__item'>
                 <NavLink className = {splitLocation[1] === '' ? 'header__link selected' : 'header__link'}  to = '/'>Home</NavLink>
             </li>

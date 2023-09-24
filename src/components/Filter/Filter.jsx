@@ -90,20 +90,20 @@ function Filter({filter}) {
   return (
     <form className='filter'>
         <div className='filter__wrap'>
-            <select name="select" size="5" multiple onChange={arrayCategory}>
-                {category.map((item, i) => <option key={i} value={item.strCategory}>{item.strCategory}</option>)}
+            <select className='filter__select' name="select" size="5" multiple onChange={arrayCategory}>
+                {category.map((item, i) => <option className='filter__option' key={i} value={item.strCategory}>{item.strCategory}</option>)}
             </select>
-            <select name="select" size="5" multiple onChange={arrayGlass}>
-                {glass.map((item, i) => <option key={i} value={item.strGlass}>{item.strGlass}</option>)}
+            <select className='filter__select' name="select" size="5" multiple onChange={arrayGlass}>
+                {glass.map((item, i) => <option key={i} className='filter__option' value={item.strGlass}>{item.strGlass}</option>)}
             </select>
-            <select name="select" size="5" multiple onChange={arrayIngredient}>
-                {ingredient.map((item, i) => <option key={i} value={item.strIngredient1}>{item.strIngredient1}</option>)}
+            <select className='filter__select' name="select" size="5" multiple onChange={arrayIngredient}>
+                {ingredient.map((item, i) => <option key={i} className='filter__option' value={item.strIngredient1}>{item.strIngredient1}</option>)}
             </select>
-            <select name="select" size="3" multiple onChange={arrayAlcoholic}>
-                {alcoholic.map((item, i) => <option key={i} value={item.strAlcoholic}>{item.strAlcoholic}</option>)}
+            <select className='filter__select' name="select" size="3" multiple onChange={arrayAlcoholic}>
+                {alcoholic.map((item, i) => <option key={i} className='filter__option' value={item.strAlcoholic}>{item.strAlcoholic}</option>)}
             </select>
         </div>
-        <button onClick={(event) => filter(event, choiceCategory, choiceGlass, choiceIngredient, choiceAlcoholic)} type='submit'>ОК</button>
+        <button className = 'filter__btn' onClick={(event) => filter(event, choiceCategory, choiceGlass, choiceIngredient, choiceAlcoholic)} type='submit'>ОК</button>
     </form>
   )
 }
