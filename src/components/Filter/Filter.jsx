@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Filter.css'
 
-function Filter({filter}) {
+function Filter({filter, sent}) {
     const [category, setCategory] = useState([])
     const [glass, setGlass] = useState([])
     const [ingredient, setIngredient] = useState([])
@@ -103,7 +103,7 @@ function Filter({filter}) {
                 {alcoholic.map((item, i) => <option key={i} className='filter__option' value={item.strAlcoholic}>{item.strAlcoholic}</option>)}
             </select>
         </div>
-        <button className = 'filter__btn' onClick={(event) => filter(event, choiceCategory, choiceGlass, choiceIngredient, choiceAlcoholic)} type='submit'>ОК</button>
+        <button className = 'filter__btn' onClick={(event) => {sent(); filter(event, choiceCategory, choiceGlass, choiceIngredient, choiceAlcoholic)}} type='submit'>ОК</button>
     </form>
   )
 }

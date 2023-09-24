@@ -10,6 +10,8 @@ function Header({search, filter}) {
     const [stateFilter, setStateFilter]= useState('/filter');
     const [stateBurger, setStateBurger]= useState(false);
     const [classN, setClassN] = useState('header__nav');
+    const [stateFilterBTN, setStateFilterBTN]= useState(false);
+    const [classFilter, setClassFilter] = useState('header__filter');
     const [size, setSize] = useState(window.innerWidth)
     const location = useLocation();
     const { pathname } = location;
@@ -25,8 +27,14 @@ function Header({search, filter}) {
       }, [location]);
 
     function addClassFilter(event){
-        if(splitLocation[1] === 'filter') setStateFilter('/')
-        else setStateFilter('/filter')
+        if(splitLocation[1] === 'filter') {
+            setStateFilter('/')
+            setClassFilter('header__filter');
+        }
+        else{
+            setStateFilter('/filter')
+            setClassFilter('hidden');
+        } 
     }
 
     useEffect(() =>{
@@ -58,6 +66,13 @@ function Header({search, filter}) {
        }
     }
 
+    function sent(){
+        if(splitLocation[1] === 'filter' && stateFilter) {
+            setClassFilter('hidden')
+            setStateFilter(true);
+        }
+    }
+
   return (
     <div className = 'header'>
         <div className='burger' onClick={() => burgerFun()}><BiMenuAltLeft/></div>
@@ -82,8 +97,8 @@ function Header({search, filter}) {
             <input onKeyUp={(event) => search(event)} className={splitLocation[1] === 'search' ? 'header__input block' : 'header__input'} type="search" />
             <NavLink to={stateSearch} onClick={(event)=>addClassSearch(event)} className='header__link'><BsSearch className='header__func' title='search'/></NavLink>
             <NavLink onClick={(event)=>addClassFilter(event)} to={stateFilter} className='header__link'><LuFilter className='header__func' title='filter'/></NavLink>
-            <div className={splitLocation[1] === 'filter' ? 'header__filter block' : 'header__filter'}>
-                <Filter filter={filter}/>
+            <div className={classFilter}>
+                <Filter filter={filter} sent={sent}/>
             </div>
         </div>
     </div>

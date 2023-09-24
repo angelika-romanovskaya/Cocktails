@@ -54,15 +54,10 @@
 }
 
 .header__filter{
-    display: none;
     position: absolute;
     top: 100%;
     right: 0;
     z-index: 100;
-}
-
-.block{
-    display: block;
 }
 
 .hidden{
