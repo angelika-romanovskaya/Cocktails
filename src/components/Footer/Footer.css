@@ -20,7 +20,6 @@
     color: black;
 }
 
-
 .selected{
     font-weight: bold;
 }
@@ -30,4 +29,20 @@
     display: flex;
     gap: 10px;
     font-size: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer{
+        padding-top: 20px;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .footer__nav{
+        text-align: center;
+        flex-direction: column;
+    }
+    .footer__messangers{
+        gap: 20px;
+    }
 }
