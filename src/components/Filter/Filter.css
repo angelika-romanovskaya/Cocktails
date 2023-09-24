@@ -43,6 +43,12 @@
     display: block;
 }
 
+.filter__name{
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
 ::-webkit-scrollbar {
     height: 10px; 
     width: 10px;              /* width of the entire scrollbar */

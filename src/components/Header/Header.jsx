@@ -18,8 +18,8 @@ function Header({search, filter}) {
     const splitLocation = pathname.split("/");
     
     function addClassSearch(event){
-        if(splitLocation[1] === 'search') setStateSearch('/')
-        else setStateSearch('/search')
+        if(splitLocation[2] === 'search') setStateSearch('/Cocktails/')
+        else setStateSearch('/Cocktails/search')
     }
 
     useEffect(() =>{
@@ -27,14 +27,14 @@ function Header({search, filter}) {
       }, [location]);
 
     function addClassFilter(event){
-        if(splitLocation[1] === 'filter') {
-            setStateFilter('/')
+        if(splitLocation[2] === 'filter') {
+            setStateFilter('/Cocktails/')
             setClassFilter('header__filter');
         }
         else{
-            setStateFilter('/filter')
+            setStateFilter('/Cocktails/filter')
             setClassFilter('hidden');
-        } 
+        }
     }
 
     useEffect(() =>{
@@ -67,7 +67,7 @@ function Header({search, filter}) {
     }
 
     function sent(){
-        if(splitLocation[1] === 'filter' && stateFilter) {
+        if(splitLocation[2] === 'filter' && stateFilter) {
             setClassFilter('hidden')
             setStateFilter(true);
         }
@@ -78,23 +78,23 @@ function Header({search, filter}) {
         <div className='burger' onClick={() => burgerFun()}><BiMenuAltLeft/></div>
         <ul onClick={() => burgerFun()}  className = {classN}>
             <li className = 'header__item'>
-                <NavLink className = {splitLocation[1] === '' ? 'header__link selected' : 'header__link'}  to = '/'>Home</NavLink>
+                <NavLink className = {splitLocation[2] === '' ? 'header__link selected' : 'header__link'}  to = '/Cocktails/'>Home</NavLink>
             </li>
             <li className = 'header__item'>
-                <NavLink className ={splitLocation[1] === 'about' ? 'header__link selected' : 'header__link'}  to = '/about'>About</NavLink>
+                <NavLink className ={splitLocation[2] === 'about' ? 'header__link selected' : 'header__link'}  to = '/Cocktails/about'>About</NavLink>
             </li>
             <li className = 'header__item'>
-                <NavLink className = {splitLocation[1] === 'alcoholic' ? 'header__link selected' : 'header__link'}  to = '/alcoholic'>Alcoholic</NavLink>
+                <NavLink className = {splitLocation[2] === 'alcoholic' ? 'header__link selected' : 'header__link'}  to = '/Cocktails/alcoholic'>Alcoholic</NavLink>
             </li>
             <li className = 'header__item'>
-                <NavLink className = {splitLocation[1] === 'non-alcoholic' ? 'header__link selected' : 'header__link'}  to = '/non-alcoholic'>NON Alcoholic</NavLink>
+                <NavLink className = {splitLocation[2] === 'non-alcoholic' ? 'header__link selected' : 'header__link'}  to = '/Cocktails/non-alcoholic'>NON Alcoholic</NavLink>
             </li>
             <li className = 'header__item'>
-                <NavLink className = {splitLocation[1] === 'optional-alcohol' ? 'header__link selected' : 'header__link'}  to = '/optional-alcohol'>Optional Alcohol</NavLink>
+                <NavLink className = {splitLocation[2] === 'optional-alcohol' ? 'header__link selected' : 'header__link'}  to = '/Cocktails/optional-alcohol'>Optional Alcohol</NavLink>
             </li>
         </ul>
         <div className='header__function'>
-            <input onKeyUp={(event) => search(event)} className={splitLocation[1] === 'search' ? 'header__input block' : 'header__input'} type="search" />
+            <input onKeyUp={(event) => search(event)} className={splitLocation[2] === 'search' ? 'header__input block' : 'header__input'} type="search" />
             <NavLink to={stateSearch} onClick={(event)=>addClassSearch(event)} className='header__link'><BsSearch className='header__func' title='search'/></NavLink>
             <NavLink onClick={(event)=>addClassFilter(event)} to={stateFilter} className='header__link'><LuFilter className='header__func' title='filter'/></NavLink>
             <div className={classFilter}>

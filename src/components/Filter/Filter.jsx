@@ -90,18 +90,30 @@ function Filter({filter, sent}) {
   return (
     <form className='filter'>
         <div className='filter__wrap'>
+          <div>
+            <h3 className='filter__name'>Category</h3>
             <select className='filter__select' name="select" size="5" multiple onChange={arrayCategory}>
                 {category.map((item, i) => <option className='filter__option' key={i} value={item.strCategory}>{item.strCategory}</option>)}
             </select>
+          </div>
+          <div>
+            <h3 className='filter__name'>Glass</h3>
             <select className='filter__select' name="select" size="5" multiple onChange={arrayGlass}>
                 {glass.map((item, i) => <option key={i} className='filter__option' value={item.strGlass}>{item.strGlass}</option>)}
             </select>
+          </div>
+          <div>
+            <h3 className='filter__name'>Ingredient</h3>
             <select className='filter__select' name="select" size="5" multiple onChange={arrayIngredient}>
                 {ingredient.map((item, i) => <option key={i} className='filter__option' value={item.strIngredient1}>{item.strIngredient1}</option>)}
             </select>
+          </div>
+          <div>
+            <h3 className='filter__name'>Alcoholic</h3>
             <select className='filter__select' name="select" size="3" multiple onChange={arrayAlcoholic}>
                 {alcoholic.map((item, i) => <option key={i} className='filter__option' value={item.strAlcoholic}>{item.strAlcoholic}</option>)}
             </select>
+          </div>
         </div>
         <button className = 'filter__btn' onClick={(event) => {sent(); filter(event, choiceCategory, choiceGlass, choiceIngredient, choiceAlcoholic)}} type='submit'>ОК</button>
     </form>

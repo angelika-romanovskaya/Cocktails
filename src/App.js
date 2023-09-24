@@ -42,9 +42,9 @@ function App() {
 
   
   const getCocktail = function(){
-    if(splitLocation[1] !== '' && splitLocation[1] === 'alcoholic') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Alcoholic"))
-    else if(splitLocation[1] !== '' && splitLocation[1] === 'non-alcoholic') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Non alcoholic"))
-    else if(splitLocation[1] !== '' && splitLocation[1] === 'optional-alcohol') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Optional alcohol"))
+    if(splitLocation[2] !== '' && splitLocation[2] === 'alcoholic') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Alcoholic"))
+    else if(splitLocation[2] !== '' && splitLocation[2] === 'non-alcoholic') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Non alcoholic"))
+    else if(splitLocation[2] !== '' && splitLocation[2] === 'optional-alcohol') setCocktails(allCocktails.filter((item)=> item.strAlcoholic === "Optional alcohol"))
   }
 
   useEffect(() =>{
@@ -224,14 +224,14 @@ function App() {
       <div className='container'>
         <Header search={search} filter={filter}/>
         <Routes>
-          <Route path='/' element={<Main allcocktail = {allCocktails}/>}></Route>
-          <Route path='/about' element={<About/>}></Route>
-          <Route path='/alcoholic' element={<Main allcocktail = {cocktails}/>}></Route>
-          <Route path='/non-alcoholic' element={<Main allcocktail = {cocktails}/>}></Route>
-          <Route path='/optional-alcohol' element={<Main allcocktail = {cocktails}/>}></Route>
-          <Route path='/search' element={<Main allcocktail = {cocktails}/>}></Route>
-          <Route path='/filter' element={<Main allcocktail = {cocktails}/>}></Route>
-          {allCocktails.map((item, i) => <Route key={i} path={"/cocktail/" + item.strDrink} element={<Details cocktail={item}/>}></Route>)}
+          <Route path='/Cocktails/' element={<Main allcocktail = {allCocktails}/>}></Route>
+          <Route path='/Cocktails/about' element={<About/>}></Route>
+          <Route path='/Cocktails/alcoholic' element={<Main allcocktail = {cocktails}/>}></Route>
+          <Route path='/Cocktails/non-alcoholic' element={<Main allcocktail = {cocktails}/>}></Route>
+          <Route path='/Cocktails/optional-alcohol' element={<Main allcocktail = {cocktails}/>}></Route>
+          <Route path='/Cocktails/search' element={<Main allcocktail = {cocktails}/>}></Route>
+          <Route path='/Cocktails/filter' element={<Main allcocktail = {cocktails}/>}></Route>
+          {allCocktails.map((item, i) => <Route key={i} path={"/Cocktails/cocktail/" + item.strDrink} element={<Details cocktail={item}/>}></Route>)}
         </Routes>
         <Footer/>
       </div>

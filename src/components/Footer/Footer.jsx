@@ -12,19 +12,19 @@ function Footer() {
     <div className = 'footer'>
         <ul className = 'footer__nav'>
             <li className = 'footer__item'>
-                <NavLink className = {splitLocation[1] === '' ? 'footer__link selected' : 'footer__link'}  to = '/'>Home</NavLink>
+                <NavLink className = {splitLocation[2] === '' ? 'footer__link selected' : 'footer__link'}  to = '/Cocktails/'>Home</NavLink>
             </li>
             <li className = 'footer__item'>
-                <NavLink className ={splitLocation[1] === 'about' ? 'footer__link selected' : 'footer__link'}  to = '/about'>About</NavLink>
+                <NavLink className ={splitLocation[2] === 'about' ? 'footer__link selected' : 'footer__link'}  to = '/Cocktails/about'>About</NavLink>
             </li>
             <li className = 'footer__item'>
-                <NavLink className = {splitLocation[1] === 'alcoholic' ? 'footer__link selected' : 'footer__link'}  to = '/alcoholic'>Alcoholic</NavLink>
+                <NavLink className = {splitLocation[2] === 'alcoholic' ? 'footer__link selected' : 'footer__link'}  to = '/Cocktails/alcoholic'>Alcoholic</NavLink>
             </li>
             <li className = 'footer__item'>
-                <NavLink className = {splitLocation[1] === 'non-alcoholic' ? 'footer__link selected' : 'footer__link'}  to = '/non-alcoholic'>NON Alcoholic</NavLink>
+                <NavLink className = {splitLocation[2] === 'non-alcoholic' ? 'footer__link selected' : 'footer__link'}  to = '/Cocktails/non-alcoholic'>NON Alcoholic</NavLink>
             </li>
             <li className = 'header__item'>
-                <NavLink className = {splitLocation[1] === 'optional-alcohol' ? 'footer__link selected' : 'footer__link'}  to = '/optional-alcohol'>Optional Alcohol</NavLink>
+                <NavLink className = {splitLocation[2] === 'optional-alcohol' ? 'footer__link selected' : 'footer__link'}  to = '/Cocktails/optional-alcohol'>Optional Alcohol</NavLink>
             </li>
         </ul>
         <ul className='footer__messangers'>
