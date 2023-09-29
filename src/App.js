@@ -81,7 +81,7 @@ function App() {
         console.log(glass);
         arrGlass.push(...glass);
       } else{
-        arrGlass.push(...arrCategory);
+        arrGlass.push(...arr);
       }
       return arrGlass;
     } else{
@@ -104,7 +104,7 @@ function App() {
         arrIngredient.push(...ingredient);
         console.log(ingredient);
       } else{
-        arrIngredient.push(...arrGlass);
+        arrIngredient.push(...arr);
       }
       return arrIngredient;
     } else{
@@ -125,7 +125,7 @@ function App() {
         arrAlcoholic.push(...alcoholic);
         console.log(alcoholic);
       } else{
-        arrAlcoholic.push(...arrIngredient);
+        arrAlcoholic.push(...arr);
       }
       return arrAlcoholic;
     } else{
@@ -140,7 +140,6 @@ function App() {
     arrResult = filterAlcoholic(choiceAlcoholic,filterIngredient(choiceIngredient,filterGlass(choiceGlass,filterCategory(choiseCategory))));
     setCocktails(arrResult);
 }
-
 
   return (
     <>

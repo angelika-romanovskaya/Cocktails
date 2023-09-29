@@ -87,6 +87,8 @@ function Filter({filter, sent}) {
         let value = Array.from(event.target.selectedOptions, option => option.value);
         setChoiceAlcoholic(value);
       }
+
+
   return (
     <form className='filter'>
         <div className='filter__wrap'>
